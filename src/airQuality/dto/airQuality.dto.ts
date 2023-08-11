@@ -1,17 +1,17 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsLatitude, IsLongitude } from 'class-validator';
 
-export class AirQualityByLatAndLongQueryDto {
+export class AirQualityByLatAndLonQueryDto {
   @ApiProperty()
   @IsLatitude()
   public lat: string;
 
   @ApiProperty()
   @IsLongitude()
-  public long: string;
+  public lon: string;
 }
 
-export class IqAirByLatAndLongResponseDto {
+export class IqAirByLatAndLonResponseDto {
   public ts: string;
   public aqius: number;
   public aqicn: number;
@@ -21,6 +21,7 @@ export class IqAirByLatAndLongResponseDto {
     Object.assign(this, data);
   }
 }
-export type AirQualityByLatAndLongResponseDto = {
-  pollution: IqAirByLatAndLongResponseDto;
+
+export type AirQualityByLatAndLonResponseDto = {
+  pollution: IqAirByLatAndLonResponseDto;
 };

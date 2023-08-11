@@ -6,6 +6,8 @@ import { AppService } from '../app.service';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AirQuality } from './entities/airQuality.entity';
+import { AirQualityJobService } from './cron/airQualityJob.service';
+import { CacheService } from './services/cache.service';
 import { ApiClient } from '../apiClient/apiClient';
 
 @Module({
@@ -15,6 +17,12 @@ import { ApiClient } from '../apiClient/apiClient';
     TypeOrmModule.forFeature([AirQuality]),
   ],
   controllers: [AirQualityController],
-  providers: [AirQualityService, AppService, ApiClient],
+  providers: [
+    AirQualityService,
+    AppService,
+    AirQualityJobService,
+    CacheService,
+    ApiClient,
+  ],
 })
 export class AirQualityModule {}
