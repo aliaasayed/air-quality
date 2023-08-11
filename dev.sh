@@ -6,7 +6,13 @@ function install() {
     echo '========= Starting Install ========='
 
     # install npm packages
-    npm i
+    sudo npm i
+
+    # install redis server
+    sudo apt-get install redis-server
+    
+    # Hosts Manager Go Cli
+    redis-server
     
 }
 
